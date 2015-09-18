@@ -12,13 +12,7 @@ namespace MVC5_Practice
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
-            routes.MapRoute(
-            name: "ravi",
-            url: "ravi",
-            defaults: new { controller = "Home", action = "View" }
-            );
-
+            //routes.MapMvcAttributeRoutes();
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

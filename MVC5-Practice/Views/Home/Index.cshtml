@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -11,8 +10,31 @@
     <title>Index</title>
 </head>
 <body>
-    <div> 
-        <h1>Hi This is Index</h1>
+    <div>
+        @helper ListingItem(string[] list)
+        {
+        <ol>
+            @foreach (string item in list)
+            {
+                <li><h3>@item</h3></li>
+            }
+        </ol>
+        }
+        @using (Html.BeginForm("Index", "Home", FormMethod.Post, new { @encType = "multipart/form-data" }))
+        {
+            @Html.TextBox("MyText", "Ravi")
+            @Html.DropDownList("ddl1", new SelectList(new[] { "---Select Item---", "Male", "Female" }))
+            @Html.ListBox("lb1", new MultiSelectList(new[] { "---Select Item---", "Male", "Female" }))
+            <br />
+            <span> Male :</span>@Html.RadioButton("RadioG", "Gender", false) <br /> <span>Female :</span> @Html.RadioButton("RadioG", "Gender", true)
+            <input type="submit" value="Submit Data" />
+            <h1>Hi This is Index</h1>
+            <h2>Programming Language List</h2>
+            @ListingItem(new string[] { "C", "C++", "C#", "Java", "Python", "RoR" })
+            <br />
+            <h2>Programming Book List</h2>
+            @ListingItem(new string[] { "Let us C", "Let us C++", "C# Programmin", "Java Language", "Python Programming", "RoR Devs" })
+        }
     </div>
 </body>
 </html>

@@ -8,16 +8,19 @@ namespace MVC5_Practice.Controllers
 {
     public class HomeController : Controller
     {
-        //
-        // GET: /Home/
         public ActionResult Index(int? id)
         {
-            return View("View");
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Index()
+        {
+            return View();
         }
 
-        public ActionResult View()
+        public ActionResult Customer()
         {
-            return View("Index");
+            return View("View");
         }
 	}
 }
