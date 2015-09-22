@@ -1,18 +1,25 @@
-﻿
+﻿@model MVC5_Practice.Models.Registration
 @{
-    Layout = null;
+   // Layout = null;
+}
+@{ViewBag.Title = "Index";}
+
+@section Header{
+    <h2>Fill Registration Form Section</h2>
 }
 
-<!DOCTYPE html>
+@using (@Html.BeginForm("Index", "Home", FormMethod.Post, new { @encType = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken();
+    @Html.ValidationSummary(true);
+    <span>Name:</span> @Html.TextBoxFor(x => x.Name) <br />
+    @Html.ValidationMessageFor(x => x.Name)
+    <br /> <br />
+    <span>Is Married:</span> @Html.EditorFor(x => x.IsMarried)<br /> <br />
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
-        <h1>Hi This is Index</h1>
-    </div>
-</body>
-</html>
+    <span>Gender:</span> @Html.EditorFor(x => x.Gender)<br /> <br />
+    @Html.ValidationMessageFor(x => x.Gender)<br /> <br />
+
+    <input type="submit" id="btnSubmit" value="Save" />
+    <input type="reset" value="Reset" />
+}

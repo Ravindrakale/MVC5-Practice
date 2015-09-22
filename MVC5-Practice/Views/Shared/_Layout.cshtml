@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/jquery")
+
+
+    @Scripts.Render("~/bundle/jqruryui")
+</head>
+<body>
+    <div>
+        @RenderPage("~/Views/Shared/_Header.cshtml")
+        @RenderSection("header", false)
+        @RenderBody()
+        @RenderPage("~/Views/Shared/_Footer.cshtml")
+    </div>
+</body>
+</html>
