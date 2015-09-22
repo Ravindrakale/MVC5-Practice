@@ -32,7 +32,7 @@ namespace MVC5_Practice.Controllers
             //return View();
             //return RedirectToAction("Page404");
             //return Redirect("Home/Page404");
-            return RedirectToRoute()
+            return RedirectToRoute("ravi");
         }
         public ActionResult AboutUs()
         {
