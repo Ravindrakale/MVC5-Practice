@@ -4,21 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using MVC5_Practice.Models;
+using System.Web.SessionState;
 
 namespace MVC5_Practice.Controllers
 {
+    [SessionState(SessionStateBehavior.Disabled)]
     public class HomeController : Controller
     {
-        //
-        // GET: /Home/
-        public ActionResult Index(string id)
+        public ActionResult Index(int? id)
         {
-            int m = Convert.ToInt32(id);
-            Registration reg = new Registration();
-            reg.Gender = 1;
-            reg.Name = "Ravindra Kale";
-            reg.IsMarried = true;
-            return View(reg);
+            return View("AboutUs");
         }
 
         [HttpPost]
@@ -26,13 +21,13 @@ namespace MVC5_Practice.Controllers
         {
             if (ModelState.IsValid)
             {
-                ModelState.AddModelError("", "This is Model Level Error");
-                ModelState.AddModelError("Name", "This is Model Level Error");
+                if (Request.IsAjaxRequest())
+                {
+                    return PartialView("_Home", Reg);
+                }
+                View(Reg);
             }
-            //return View();
-            //return RedirectToAction("Page404");
-            //return Redirect("Home/Page404");
-            return RedirectToRoute()
+            return View();
         }
         public ActionResult AboutUs()
         {
@@ -43,5 +38,5 @@ namespace MVC5_Practice.Controllers
         {
             return View();
         }
-	}
+    }
 }

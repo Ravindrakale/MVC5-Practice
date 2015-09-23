@@ -327,6 +327,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\ActionController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -354,6 +355,7 @@
     <Content Include="Views\Shared\_HomeLayout.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Home\Page404.cshtml" />
+    <Content Include="Views\Home\_Home.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -365,6 +367,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Content\image\DoctorPhotos\" />
     <Folder Include="Scripts\google-code-prettify\obj\Debug\" />
+    <Folder Include="Views\Action\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

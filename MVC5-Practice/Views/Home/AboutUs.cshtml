@@ -1,7 +1,20 @@
-﻿@{
+﻿@model Registration
+@{
     ViewBag.Title = "About Us";
 }
 @section Header{
-    <div><h3>About Us Section</h3></div>
+    <h2>Fill Registration Form Section About Us</h2>
 }
 <div><h4>About us </h4></div>
+@using (Ajax.BeginForm("Index", new AjaxOptions
+{
+    HttpMethod = "POST",
+    InsertionMode = InsertionMode.Replace,
+    UpdateTargetId = "AllDoctorDetails",
+    LoadingElementId = "DoctorDetailForm"
+}))
+{
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+    Html.RenderPartial("_Home", Model);
+}
